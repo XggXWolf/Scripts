@@ -1,0 +1,97 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local close = Instance.new("TextButton")
+local onoff = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+
+local switch = Instance.new("BoolValue")
+
+switch.Parent = ScreenGui
+switch.Name = "onoffswitch"
+switch.Value = false
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Frame.Position = UDim2.new(0.217311233, 0, 0.399201602, 0)
+Frame.Size = UDim2.new(0, 183, 0, 113)
+Frame.Active = true
+Frame.Draggable = true
+
+close.Name = "close"
+close.Parent = Frame
+close.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+close.BorderSizePixel = 0
+close.Position = UDim2.new(0.863156497, 0, 0, 0)
+close.Size = UDim2.new(0, 25, 0, 28)
+close.Font = Enum.Font.SourceSans
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(255, 255, 255)
+close.TextSize = 14.000
+close.MouseButton1Down:Connect(function()
+	ScreenGui:Destroy()
+end)
+
+onoff.Name = "onoff"
+onoff.Parent = Frame
+onoff.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+onoff.BorderSizePixel = 0
+onoff.Position = UDim2.new(0.0762712657, 0, 0.412647903, 0)
+onoff.Size = UDim2.new(0, 159, 0, 50)
+onoff.Font = Enum.Font.RobotoCondensed
+onoff.Text = "OFF"
+onoff.TextColor3 = Color3.fromRGB(255, 50, 50)
+onoff.TextSize = 20.000
+onoff.MouseButton1Down:Connect(function()
+	if switch.Value then
+		switch.Value = false
+		onoff.Text = "OFF"
+		onoff.TextColor3 = Color3.fromRGB(255, 50, 50)
+
+		
+	else
+		switch.Value = true
+		onoff.Text = "ON"
+		onoff.TextColor3 = Color3.fromRGB(50, 255, 50)
+	end
+	
+	
+end)
+
+
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0710382462, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 131, 0, 28)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "MHaven Auto Crate by Maou"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 15.000
+
+
+while wait(1) do
+	if switch.Value then
+		print("working")
+		for _,v in pairs(game.Workspace:GetChildren()) do
+			if string.match(v.Name, "Diamond") or string.match(v.Name, "Research") or string.match(v.Name, "Golden")  or string.match(v.Name, "Crystal") or string.match(v.Name, "Lucky") or string.match(v.Name, "Executive") or string.match(v.Name, "DailyGift") or string.match(v.Name, "Gift") then
+
+				if game.Workspace.Shadows:FindFirstChild("Shadow") then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Shadows:FindFirstChild("Shadow").CFrame
+				else
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+				end
+			end
+		end
+	end
+end
