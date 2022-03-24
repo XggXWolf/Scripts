@@ -242,18 +242,17 @@ local function TNVW_fake_script() -- ScreenGui.LocalScript
 					_for.Text = scrframe["hmany"..count2].Text
 					--print(scrframe["hmany"..count2].Text)
 					--game.Workspace.booth.SurfaceGui.TextLabel.Text = string.format(scrframe["hmany"..count2].Text)
-                    game:GetService("ReplicatedStorage").Events.EditBooth:FireServer(scrframe["hmany"..tostring(count2)].Text, ohString2)
-
+ 	 	game:GetService("ReplicatedStorage").Remotes["1TWdGGC0Jd3ib4Tmhev/xPHCdno="]:FireServer(scrframe["hmany"..tostring(count2)].Text, ohString2)
 	
-					wait(2)
+					wait(3)
 					count2 = count2 + 1
 				end
 				_for.Text = scrframe["hmany"..count2].Text
 				print(scrframe["hmany"..count2].Text)
 				--game.Workspace.booth.SurfaceGui.TextLabel.Text = string.format(scrframe["hmany"..count2].Text)
-                game:GetService("ReplicatedStorage").Events.EditBooth:FireServer(scrframe["hmany"..tostring(count2)].Text, ohString2)
+                game:GetService("ReplicatedStorage").Remotes["1TWdGGC0Jd3ib4Tmhev/xPHCdno="]:FireServer(scrframe["hmany"..tostring(count2)].Text, ohString2)
 				count2 = 0
-				wait(2)
+				wait(3)
 		end
 	end)
 end
