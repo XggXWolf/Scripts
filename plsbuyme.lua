@@ -116,6 +116,7 @@ Logo.BorderSizePixel = 0
 Logo.Position = UDim2.new(0, 55, 0, 164)
 Logo.Size = UDim2.new(0, 50, 0, 50)
 Logo.Image = "rbxassetid://14263270828"
+Logo.ImageTransparency = 0.5
 
 Label.Name = "Label"
 Label.Parent = Frame
